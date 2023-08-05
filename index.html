@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // tailwind.config.js
+        tailwind.config = {
+            theme: {
+                container: {
+                    // you can configure the container to be centered
+                    center: true,
+
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            variants: {},
+            plugins: [],
+        }
+    </script>
+    <!-- Css links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/style/animation.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <title>Store</title>
+</head>
+
+<body>
+    <div class="site w-full h-full">
+        <!-- Status Alert -->
+        <div
+            class="status-alert AnimatedCart-open fixed top-5 left-5 bg-slate-50 border-2 border-slate-300 py-3 px-4 z-[999] rounded-xl overflow-hidden hidden">
+            <div class="flex gap-5">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-700">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <span class="status-alert-context">Added to cart</span>
+            </div>
+            <span class="h-1 transition-all bg-black absolute bottom-0 left-0 rounded-full AnimatedCartLine"></span>
+        </div>
+        <!-- Registration Modal Box -->
+        <div
+            class="register-modal bg-white bg-opacity-70 backdrop-blur-md absolute w-full h-full z-50 flex justify-center items-center shadow-lg transition-all hidden">
+
+        </div>
+        <!-- Offer Popup -->
+        <div
+            class="offer-section reletive transition-all duration-300 top-0 left-0 w-full py-2 bg-slate-900 text-center text-white text-[0.9rem] font-thin">
+
+        </div>
+        <!-- Header Section -->
+        <header>
+            <!-- Navigation Section -->
+            <nav
+                class="nav-bar flex items-center justify-center max-sm:flex-col max-sm:gap-0 sm:justify-between container pt-10 pb-10 text-slate-700 max-sm:border-b-2">
+
+            </nav>
+        </header>
+        <!-- Slider -->
+        <div class="container overflow-hidden">
+            <div class="swiper banner-slider rounded-lg relative">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide relative">
+                        <img src="./assets/img/slide.jpg" alt="slide">
+                        <div
+                            class="absolute top-0 left-0 bg-black bg-opacity-40 w-full h-full z-50 py-12 flex flex-col gap-10 max-sm:gap-3 items-center justify-center">
+                            <p
+                                class="text-white text-[4rem] max-xl:text-[3rem] max-lg:text-[2.25rem] max-lg:leading-[3rem] max-sm:text-[1.5rem] max-sm:leading-9 font-bold leading-[5rem] text-center">
+                                Level up your
+                                style with
+                                our summer collections</p>
+                            <a class="inline-flex rounded-md bg-white p-2 lg:p-4 gap-2 items-center max-sm: hover:bg-slate-100 "
+                                href="#">
+                                <span class="max-sm:text-xs">Shop now</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:hidden fill-black">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Slides -->
+                    <div class="swiper-slide relative">
+                        <img src="./assets/img/slide.jpg" alt="slide">
+                        <div
+                            class="absolute top-0 left-0 bg-black bg-opacity-40 w-full h-full z-50 py-12 flex flex-col gap-10 max-sm:gap-3 items-center justify-center">
+                            <p
+                                class="text-white text-[4rem] max-xl:text-[3rem] max-lg:text-[2.25rem] max-lg:leading-[3rem] max-sm:text-[1.5rem] max-sm:leading-9 font-bold leading-[5rem] text-center">
+                                Level up your
+                                style with
+                                our summer collections</p>
+                            <a class="inline-flex rounded-md bg-white p-2 lg:p-4 gap-2 items-center max-sm: hover:bg-slate-100 "
+                                href="#">
+                                <span class="max-sm:text-xs">Shop now</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:hidden fill-black">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Slides -->
+                    <div class="swiper-slide relative">
+                        <img src="./assets/img/slide.jpg" alt="slide">
+                        <div
+                            class="absolute top-0 left-0 bg-black bg-opacity-40 w-full h-full z-50 py-12 flex flex-col gap-10 max-sm:gap-3 items-center justify-center">
+                            <p
+                                class="text-white text-[4rem] max-xl:text-[3rem] max-lg:text-[2.25rem] max-lg:leading-[3rem] max-sm:text-[1.5rem] max-sm:leading-9 font-bold leading-[5rem] text-center">
+                                Level up your
+                                style with
+                                our summer collections</p>
+                            <a class="inline-flex rounded-md bg-white p-2 lg:p-4 gap-2 items-center max-sm: hover:bg-slate-100 "
+                                href="#">
+                                <span class="max-sm:text-xs">Shop now</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:hidden fill-black">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div
+                    class="navigation-btn absolute top-[1.5rem] right-[1.5rem] hidden lg:flex justify-between rounded-lg w-24 h-12 bg-white z-20 overflow-hidden">
+                    <div
+                        class="swiper-button-prev relative top-auto right-auto left-auto m-auto z-auto h-full text-black border-r-slate-200 border-r-2 w-[50%] hover:bg-slate-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </div>
+                    <div
+                        class="swiper-button-next relative top-auto right-auto left-auto m-auto z-auto h-full text-black w-[50%] hover:bg-slate-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brands -->
+        <div class="brands container my-16 mb-36 overflow-y-auto scrollbar-none">
+            <p class="text-3xl font-bold mb-10">Brands</p>
+            <div class="brand-slider overflow-hidden">
+                <div class="swiper-wrapper h-10 flex justify-between items-center px-6">
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/AMIRI.png" alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/cassandreysl.png"
+                            alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/louis-vuitton.png"
+                            alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/Versace.png" alt="Amiri">
+                    </div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/louis-vuitton.png"
+                            alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/vitra.jpg" alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/zara.png" alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full" src="./assets/img/brands/vitra.jpg" alt="Amiri"></div>
+                    <div class="swiper-slide"><img class="h-full"
+                            src="./assets/img/brands/61459-christian-brand-chanel-dior-logo-parfums-se.png" alt="Amiri">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Options -->
+        <div class="container mb-20">
+            <div class="flex justify-between max-md:flex-col max-md:gap-6 mb-10">
+                <div data-aos-duration="1800" data-aos="fade-right" class="font-bold text-3xl text-center md:text-left">
+                    We provide best <br> customer experiences
+                </div>
+                <div data-aos-duration="1800" data-aos="fade-left"
+                    class="text-slate-400 md:border-l-2 md:border-l-slate-800 pl-5 flex items-center">
+                    We ensure our customers have the best shopping experience
+                </div>
+            </div>
+            <!-- Options Item -->
+            <div
+                class="flex gap-6 max-lg:text-center max-md:grid max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-y-16">
+                <div data-aos-duration="800" data-aos="fade-up"
+                    class="flex flex-col gap-5 flex-flow max-lg:items-center max-md:items-start max-md:text-left max-sm:text-center max-sm:items-center">
+                    <div class="rounded-lg bg-slate-100 border-[1px] border-slate-200 p-4 w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-xl">Original Product</p>
+                    <p class="text-slate-400">We provide mony back guarantee if the product are not original</p>
+                </div>
+                <div data-aos-duration="1200" data-aos="fade-up"
+                    class="flex flex-col gap-5 flex-flow max-lg:items-center max-md:items-start max-md:text-left max-sm:text-center max-sm:items-center">
+                    <div class="rounded-lg bg-slate-100 border-[1px] border-slate-200 p-4 w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-xl">Satisfaction Guarantee</p>
+                    <p class="text-slate-400">Exchange the product you`ve purcheased if it doesn`t fir on you</p>
+                </div>
+                <div data-aos-duration="1700" data-aos="fade-up"
+                    class="flex flex-col gap-5 flex-flow max-lg:items-center max-md:items-start max-md:text-left max-sm:text-center max-sm:items-center">
+                    <div class="rounded-lg bg-slate-100 border-[1px] border-slate-200 p-4 w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-xl">Fast & Free Shopping</p>
+                    <p class="text-slate-400">We offer fast and free shopping for our loyal customers</p>
+                </div>
+                <div data-aos-duration="2200" data-aos="fade-up"
+                    class="flex flex-col gap-5 flex-flow max-lg:items-center max-md:items-start max-md:text-left max-sm:text-center max-sm:items-center">
+                    <div class="rounded-lg bg-slate-100 border-[1px] border-slate-200 p-4 w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-xl">Original Product</p>
+                    <p class="text-slate-400">We provide mony back guarantee if the product are not original</p>
+                </div>
+            </div>
+        </div>
+        <!-- Category -->
+        <div class="container mb-20">
+            <p class="text-3xl font-bold text-slate-900 mb-10 max-md:text-center">Curated picks</p>
+            <div class="grid grid-cols-4 gap-7 max-lg:grid-cols-2 max-lg:justify-items-center max-sm:grid-cols-1">
+                <!-- Category list -->
+                <div data-aos-duration="800" data-aos="zoom-in"
+                    class="relative w-64 h-64 max-xl:w-52 max-lg:w-64 max-lg:h-64 max-xl:h-52 overflow-hidden rounded-lg">
+                    <img class="w-full" src="./assets/img/mohamad-khosravi-_AOGyLg_o5s-unsplash.jpg">
+                    <a class="absolute bottom-8 right-0 left-0 w-4/5 mx-auto bg-white rounded-lg flex justify-center items-center gap-3 py-3 hover:bg-slate-100"
+                        href="#">
+                        <span class="text-lg text-slate-700">Best Seller</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 fill-slate-700">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div data-aos-duration="1200" data-aos="zoom-in"
+                    class="relative w-64 h-64 max-xl:w-52 max-lg:w-64 max-lg:h-64 max-xl:h-52 overflow-hidden rounded-lg">
+                    <img class="w-full" src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                    <a class="absolute bottom-8 right-0 left-0 w-4/5 mx-auto bg-white rounded-lg flex justify-center items-center gap-3 py-3 hover:bg-slate-100"
+                        href="#">
+                        <span class="text-lg text-slate-700">Shop Men</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 fill-slate-700">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div data-aos-duration="1700" data-aos="zoom-in"
+                    class="relative w-64 h-64 max-xl:w-52 max-lg:w-64 max-lg:h-64 max-xl:h-52 overflow-hidden rounded-lg">
+                    <img class="w-full" src="./assets/img/adele-shafiee-58OynfcotZk-unsplash.jpg">
+                    <a class="absolute bottom-8 right-0 left-0 w-4/5 mx-auto bg-white rounded-lg flex justify-center items-center gap-3 py-3 hover:bg-slate-100"
+                        href="#">
+                        <span class="text-lg text-slate-700">Shop Women</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 fill-slate-700">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div data-aos-duration="2200" data-aos="zoom-in"
+                    class="relative w-64 h-64 max-xl:w-52 max-lg:w-64 max-lg:h-64 max-xl:h-52 overflow-hidden rounded-lg">
+                    <img class="w-full" src="./assets/img/adele-shafiee-_Eu7AukByoU-unsplash.jpg">
+                    <a class="absolute bottom-8 right-0 left-0 w-4/5 mx-auto bg-white rounded-lg flex justify-center items-center gap-3 py-3 hover:bg-slate-100"
+                        href="#">
+                        <span class="text-lg text-slate-700">Shop Casual</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 fill-slate-700">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Featured products -->
+        <div class="container">
+            <p class="text-3xl font-bold text-slate-900 mb-10 max-md:text-center">Featured products</p>
+            <div class="swiper featured-products">
+                <div class="flex gap-5 swiper-wrapper">
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Products Item -->
+                    <div class="min-w-[16rem] swiper-slide">
+                        <a href="#"
+                            class="min-lg:-w-64  hover:-translate-y-7 hover:shadow-md hover:shadow-slate-300 transition-all duration-500 p-3 rounded-xl bg-slate-50">
+                            <div class="relative w-full h-[420px] overflow-hidden rounded-lg">
+                                <span
+                                    class="absolute top-4 left-4 font-semibold tracking-widest text-white p-1 rounded-md bg-red-600">SALE</span>
+                                <img class="w-full rounded-xl"
+                                    src="./assets/img/mohamad-khosravi-4fkUAduhoSY-unsplash.jpg">
+                            </div>
+                            <div class="flex justify-between items-center mt-5">
+                                <div>
+                                    <p class="text-slate-600 mb-2 text-lg">Autumn Dress</p>
+                                    <div class="flex">
+                                        <p class="price text-2xl text-slate-600 font-black">58</p>
+                                        <p class="price text-slate-400 ml-2 line-through">85</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="rounded-xl p-4 bg-slate-800 hover:bg-slate-700 transition-all ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Advertising Banner Or Offer Banner Section -->
+        <div class="container max-sm:h-min overflow-hidden h-72 rounded-xl my-24 max-md:my-16">
+            <a href="#">
+                <img src="./assets/img/baner.jpg" alt="" />
+            </a>
+        </div>
+        <!-- Newsletter Section -->
+        <div class="container flex flex-col items-center mb-28">
+            <h1 class="mb-4 text-4xl font-bold w-[800px] text-center text-slate-800 max-md:text-3xl max-md:w-[90%]">
+                Subscribe to our newsletter to get update to our lates collections
+            </h1>
+            <p class="text-slate-400 text-md max-sm:text-sm max-sm:text-center">
+                Get 20% off on your first order just by subscribing to our newsletter
+            </p>
+            <form action="#" method="Post" class="newsletter-form flex gap-2 my-4 max-sm:flex-col max-sm:py-">
+                <div class="p-4 h-14 flex items-center border-2 border-slate-200 rounded-lg bg-slate-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-400 mr-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    <input class="bg-transparent placeholder:text-slate-400" type="email"
+                        placeholder="Enter your email" />
+                </div>
+                <button class="bg-black rounded-lg px-5 text-white font-medium max-sm:py-3">
+                    Subscribe
+                </button>
+            </form>
+            <p class="text-slate-400 text-sm mb-1 font-medium">
+                You will be able to unsubscribe at any time.
+            </p>
+            <p class="text-slate-400 text-sm font-medium">
+                Read our Privacy Policy
+                <a class="text-black underline" href="#">here</a>
+            </p>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-slate-100 w-full pt-16">
+        </footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="./assets/script/freamwork/swiper-bundle.min.js"></script>
+        <script type="module" src="./assets/script/main.js"></script>
+        <script>
+            const bannerSwiper = new Swiper('.banner-slider', {
+                direction: 'horizontal',
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 2000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            const featuredProducts = new Swiper('.featured-products', {
+                direction: 'horizontal',
+                initialSlide: 1,
+                slidesPerView: 1,
+                breakpoints: {
+                    '430': {
+                        spaceBetween: 70,
+                        slidesPerView: 2,
+                    },
+                    '768': {
+                        spaceBetween: 40,
+                        slidesPerView: 3,
+                    }
+                },
+                speed: 1000,
+                autoplay: {
+                    delay: 2000,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            const brandSwiper = new Swiper('.brand-slider', {
+                direction: 'horizontal',
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 2000,
+                },
+                centeredSlides: true,
+                spaceBetween: 30,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+            AOS.init({
+                once: true,
+            });
+        </script>
+</body>
+
+</html>

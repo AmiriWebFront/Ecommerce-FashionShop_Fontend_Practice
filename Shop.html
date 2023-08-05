@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css links -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="../assets/style/animation.min.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // tailwind.config.js
+        tailwind.config = {
+            theme: {
+                container: {
+                    // you can configure the container to be centered
+                    center: true,
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '2rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            variants: {},
+            plugins: [],
+        }
+    </script>
+
+    <title>Store</title>
+</head>
+
+<body>
+    <div class="site w-full h-full">
+        <!--Status Alert -->
+        <div
+            class="status-alert AnimatedCart-open fixed top-5 left-5 bg-slate-50 border-2 border-slate-300 py-3 px-4 z-[999] rounded-xl overflow-hidden hidden">
+            <div class="flex gap-5">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-700">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <span class="status-alert-context">Added to cart</span>
+            </div>
+            <span class="h-1 transition-all bg-black absolute bottom-0 left-0 rounded-full AnimatedCartLine"></span>
+        </div>
+        <!-- Registration Modal Box -->
+        <div
+            class="register-modal bg-white bg-opacity-70 backdrop-blur-md absolute w-full h-full z-50 flex justify-center items-center shadow-lg transition-all hidden">
+
+        </div>
+        <!-- Offer Popup -->
+        <div
+            class="offer-section reletive transition-all duration-300 top-0 left-0 w-full py-2 bg-slate-900 text-center text-white text-[0.9rem] font-thin">
+
+        </div>
+        <!-- Header Section -->
+        <header>
+            <!-- Navigation Section -->
+            <nav
+                class="nav-bar flex items-center justify-center max-sm:flex-col max-sm:gap-8 sm:justify-between container pt-10 pb-10 text-slate-700 max-sm:border-b-2">
+
+            </nav>
+        </header>
+        <!-- Main Section -->
+        <div class="container flex gap-x-8 justify-between text-slate-700">
+            <!-- Aside Filter Box -->
+            <aside
+                class="sticky top-8 mb-44 left-0 w-[25%] h-fit border-2 border-slate-100 rounded-lg px-2 py-2 max-lg:hidden">
+                <!-- Filter - Category Section -->
+                <div>
+                    <li
+                        class="filterItem my-2 cursor-pointer py-3 flex justify-between items-cente px-2 hover:bg-slate-100">
+                        <span>Category</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </li>
+                    <ul class="px-4 h-0 overflow-clip transition-all">
+                        <div>
+                            <li class="filterItem flex justify-between py-3 px-2">
+                                <span>Woman</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </li>
+                            <ul class="flex gap-6 flex-col h-0 overflow-clip">
+                                <li class="relative cursor-pointer flex items-center text-slate-700 text-md px-4">
+                                    <div
+                                        class="inline-flex items-center justify-center w-4 h-4 rounded-[4px] border-2 border-slate-600 relative mr-2">
+                                        <input type="checkbox" class="appearance-none w-full h-full absolute" />
+                                        <span
+                                            class="border-r-2 border-b-2 border-slate-600 w-[5px] h-[9px] rotate-45 mb-[0.1rem] hidden"></span>
+                                    </div>
+                                    <span>Tops</span>
+                                    <span
+                                        class="absolute right-1 rounded-full bg-slate-100 w-[1.8rem] h-[] text-sm text-center">37</span>
+                                </li>
+                                <li class="relative cursor-pointer flex items-center text-slate-700 text-md px-4">
+                                    <div
+                                        class="inline-flex items-center justify-center w-4 h-4 rounded-[4px] border-2 border-slate-600 relative mr-2">
+                                        <input type="checkbox" class="appearance-none w-full h-full absolute" />
+                                        <span
+                                            class="border-r-2 border-b-2 border-slate-600 w-[5px] h-[9px] rotate-45 mb-[0.1rem] hidden"></span>
+                                    </div>
+                                    <span>Jackets</span>
+                                    <span
+                                        class="absolute right-1 rounded-full bg-slate-100 w-[1.8rem] h-[] text-sm text-center">22</span>
+                                </li>
+                                <li class="relative cursor-pointer flex items-center text-slate-700 text-md px-4">
+                                    <div
+                                        class="inline-flex items-center justify-center w-4 h-4 rounded-[4px] border-2 border-slate-600 relative mr-2">
+                                        <input type="checkbox" class="appearance-none w-full h-full absolute" />
+                                        <span
+                                            class="border-r-2 border-b-2 border-slate-600 w-[5px] h-[9px] rotate-45 mb-[0.1rem] hidden"></span>
+                                    </div>
+                                    <span>Swaerts</span>
+                                    <span
+                                        class="absolute right-1 rounded-full bg-slate-100 w-[1.8rem] h-[] text-sm text-center">31</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <li class="flex justify-between py-3 px-2">
+                            <span class="text-slate-700">Kids</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </li>
+                        <li class="flex justify-between py-3 px-2">
+                            <span class="text-slate-700">Kids</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </li>
+                        <li class="flex justify-between py-3 px-2">
+                            <span class="text-slate-700">Sporty</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Filter - Brands Section -->
+                <div>
+                    <li
+                        class="filterItem my-2 cursor-pointer py-3 flex justify-between items-cente px-2 hover:bg-slate-100">
+                        <span>Brands</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </li>
+                </div>
+                <!-- Filter - Price Section -->
+                <div>
+                    <li
+                        class="filterItem my-2 cursor-pointer py-3 flex justify-between items-cente px-2 hover:bg-slate-100">
+                        <span>Price</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </li>
+                    <ul class="px-4 h-0 overflow-clip">
+                        <div class="py-2">
+                            <div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
+                                <div>
+                                    <input type="range" step="100" x-bind:min="min" x-bind:max="max"
+                                        x-on:input="mintrigger" x-model="minprice"
+                                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                                    <input type="range" step="100" x-bind:min="min" x-bind:max="max"
+                                        x-on:input="maxtrigger" x-model="maxprice"
+                                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                                    <div class="relative z-10 h-2">
+
+                                        <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200">
+                                        </div>
+
+                                        <div class="absolute z-20 top-0 bottom-0 rounded-md bg-green-300"
+                                            x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+
+                                        <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-green-300 rounded-full -mt-2"
+                                            x-bind:style="'left: '+minthumb+'%'"></div>
+
+                                        <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-green-300 rounded-full -mt-2"
+                                            x-bind:style="'right: '+maxthumb+'%'"></div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
+                                    <div>
+                                        <input type="text" maxlength="5" x-on:input.debounce="mintrigger"
+                                            x-model="minprice" wire:model.debounce.300="minPrice"
+                                            class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                                    </div>
+                                    <div>
+                                        <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger"
+                                            x-model="maxprice" wire:model.debounce="maxPrice"
+                                            class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                                    </div>
+                                </div>
+                            </div>
+                    </ul>
+                </div>
+                <!-- Filter - Size Section -->
+                <div>
+                    <li
+                        class="filterItem my-2 cursor-pointer py-3 flex justify-between items-cente px-2 hover:bg-slate-100">
+                        <span>Size</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </li>
+                    <div class="px-4 h-0 overflow-clip">
+                        <div class="my-4 flex justify-between">
+                            <button
+                                class="py-2 px-4 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all duration-300">S</button>
+                            <button
+                                class="py-2 px-4 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all duration-300">M</button>
+                            <button
+                                class="py-2 px-4 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all duration-300">L</button>
+                            <button
+                                class="py-2 px-4 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all duration-300">xl</button>
+                            <button
+                                class="py-2 px-4 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all duration-300">
+                                ></button>
+                        </div>
+                    </div>
+                </div>
+                <button class="py-2 mt-6 bg-black text-white w-full rounded-lg">
+                    Filter
+                </button>
+            </aside>
+            <!-- Products Section -->
+            <main class="w-[75%] max-lg:w-[100%]">
+                <div class="max-sm:flex max-sm:flex-col max-sm:items-center">
+                    <div class="flex justify-between max-sm:gap-7 max-sm:flex-col-reverse">
+                        <!-- Result Selected Item In Filter Section -->
+                        <span class="text-slate-700">Show <b>X</b> result from total <b>Y</b> for <b>"tops"</b></span>
+                        <!-- Sort By Drop Down -->
+                        <div class="flex items-center gap-3 max-sm:justify-center">
+                            <span>Sort by</span>
+                            <div
+                                class="sortBy flex relative items-center gap-2 py-2 px-3 border-2 border-slate-200 rounded-lg cursor-pointer">
+                                <span>Newest</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mt-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                                <ul
+                                    class="absolute top-12 left-0 bg-white border-2 border-slate-100 shadow-lg px-3 py-2 rounded-lg z-10 hidden">
+                                    <li class="sortByItem newest Popularity hover:bg-slate-100 py-2 px-2 rounded-md">
+                                        Newest
+                                    </li>
+                                    <li class="sortByItem expensive hover:bg-slate-100 py-2 px-2 rounded-md">
+                                        Expensive
+                                    </li>
+                                    <li class="sortByItem inexpensive hover:bg-slate-100 py-2 px-2 rounded-md">
+                                        Inexpensive
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- List Of Applied Filter -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <p>Applied Filter:</p>
+                        <div
+                            class="flex gap-2 items-center py-2 px-3 border-2 border-slate-100 rounded-full hover:bg-slate-200 transition cursor-pointer">
+                            <span>Top</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products List -->
+                <div>
+                    <div
+                        class="product-section grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-3 max-sm:grid-cols-1 gap-8 max-sm:gap-0">
+                    </div>
+                    <div class="w-full flex justify-center items-center mt-16 mb-20">
+                        <button
+                            class="load-more rounded-md relative h-[45px] border-2 border-slate-200 p-3 hover:bg-slate-200 transition-all flex justify-center items-center">
+                            <div class="lds-ellipsis mt-2 ml-2 hidden">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <span>Load more</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!-- Advertising Banner Or Offer Banner Section -->
+        <div class="container overflow-hidden h-72 rounded-xl my-24">
+            <a href="#">
+                <img src="./assets/img/baner.jpg" alt="" />
+            </a>
+        </div>
+        <!-- Newsletter Section -->
+        <div class="container flex flex-col items-center mb-28">
+            <h1 class="mb-4 text-4xl font-bold w-[800px] text-center text-slate-800 max-md:text-3xl max-md:w-[90%]">
+                Subscribe to our newsletter to get update to our lates collections
+            </h1>
+            <p class="text-slate-400 text-md max-sm:text-sm max-sm:text-center">
+                Get 20% off on your first order just by subscribing to our newsletter
+            </p>
+            <form action="#" method="Post" class="newsletter-form flex gap-2 my-4 max-sm:flex-col max-sm:py-">
+                <div class="p-4 h-14 flex items-center border-2 border-slate-200 rounded-lg bg-slate-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-400 mr-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    <input class="bg-transparent placeholder:text-slate-400" type="email"
+                        placeholder="Enter your email" />
+                </div>
+                <button class="bg-black rounded-lg px-5 text-white font-medium max-sm:py-3">
+                    Subscribe
+                </button>
+            </form>
+            <p class="text-slate-400 text-sm mb-1 font-medium">
+                You will be able to unsubscribe at any time.
+            </p>
+            <p class="text-slate-400 text-sm font-medium">
+                Read our Privacy Policy
+                <a class="text-black underline" href="#">here</a>
+            </p>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-slate-100 w-full pt-16">
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="./assets/script/shop.js"></script>
+    <script type="module" src="./assets/script/main.js"></script>
+    <script>
+        function range() {
+            return {
+                minprice: 0,
+                maxprice: 10000,
+                min: 0,
+                max: 10000,
+                minthumb: 0,
+                maxthumb: 0,
+                mintrigger() {
+                    this.validation();
+                    this.minprice = Math.min(this.minprice, this.maxprice - 500);
+                    this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+                },
+                maxtrigger() {
+                    this.validation();
+                    this.maxprice = Math.max(this.maxprice, this.minprice + 200);
+                    this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+                },
+                validation() {
+                    if (/^\d*$/.test(this.minprice)) {
+                        if (this.minprice > this.max) {
+                            this.minprice = 9500;
+                        }
+                        if (this.minprice < this.min) {
+                            this.minprice = this.min;
+                        }
+                    } else {
+                        this.minprice = 0;
+                    }
+                    if (/^\d*$/.test(this.maxprice)) {
+                        if (this.maxprice > this.max) {
+                            this.maxprice = this.max;
+                        }
+                        if (this.maxprice < this.min) {
+                            this.maxprice = 200;
+                        }
+                    } else {
+                        this.maxprice = 10000;
+                    }
+                }
+            }
+        }
+        AOS.init({
+            once: true,
+        });
+    </script>
+</body>
+
+</html>

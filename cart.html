@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css links -->
+    <link rel="stylesheet" href="./assets/style/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/style/aos.css" />
+    <link rel="stylesheet" href="../assets/style/animation.min.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+
+
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // tailwind.config.js
+        tailwind.config = {
+            theme: {
+                container: {
+                    // you can configure the container to be centered
+                    center: true,
+
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            variants: {},
+            plugins: [],
+        }
+    </script>
+    <title>Store</title>
+</head>
+
+<body>
+    <div class="site w-full h-full">
+        <!--Status Alert -->
+        <div
+            class="status-alert AnimatedCart-open fixed top-5 left-5 bg-slate-50 border-2 border-slate-300 py-3 px-4 z-[999] rounded-xl overflow-hidden hidden">
+            <div class="flex gap-5">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-700">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <span class="status-alert-context">Added to cart</span>
+            </div>
+            <span class="h-1 transition-all bg-black absolute bottom-0 left-0 rounded-full AnimatedCartLine"></span>
+        </div>
+        <!-- Registration Modal Box -->
+        <div
+            class="register-modal bg-white bg-opacity-70 backdrop-blur-md absolute w-full h-full z-50 flex justify-center items-center shadow-lg transition-all hidden">
+
+        </div>
+        <!-- Offer Popup -->
+        <div
+            class="offer-section reletive transition-all duration-300 top-0 left-0 w-full py-2 bg-slate-900 text-center text-white text-[0.9rem] font-thin">
+
+        </div>
+        <!-- Header Section -->
+        <header>
+            <!-- Navigation Section -->
+            <nav
+                class="nav-bar flex items-center justify-center max-sm:flex-col max-sm:gap-8 sm:justify-between container pt-10 pb-10 text-slate-700 max-sm:border-b-2">
+
+            </nav>
+        </header>
+        <!-- Main Section -->
+        <main class="container flex justify-between gap-8 max-lg:gap-0 max-lg:flex-col">
+            <!-- Punched Products List -->
+            <div class="w-[65%] max-lg:w-[100%]">
+                <!-- Global remove btn and Cart Title -->
+                <div class="flex justify-between items-center text-slate-800">
+                    <p class="text-3xl text-slate-800 font-black">Cart</p>
+                    <button
+                        class="flex gap-1 align-middle text-sm font-semibold hover:bg-slate-100 active:bg-slate-200 p-2 rounded-lg transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+                            stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg>
+                        <span>Remove</span>
+                    </button>
+                </div>
+                <!-- Product table -->
+                <table class="w-full my-5">
+                    <!-- Menu -->
+                    <tr>
+                        <th class="w-[10%] text-left"><input type="checkbox"
+                                class="cart-global-select-btn appearance-none mr-2 w-5 h-5 rounded-md border-2 border-slate-900 cursor-pointer checked:bg-slate-800 checked:before:content-[''] checked:before:w-2 checked:before:h-1 checked:before:border-t-2 checked:before:border-r-2 checked:before:border-white checked:before:rotate-[130deg] flex justify-center items-center"
+                                title="Select All Items" /></th>
+                        <th class="w-[40%] max-xl:w-[30%] font-medium uppercase text-slate-400 text-left">product</th>
+                        <th class="w-[25%] font-medium uppercase text-slate-400 text-center max-sm:hidden">Quantity</th>
+                        <th class="w-[25%] font-medium uppercase text-slate-400 text-right max-lg:hidden">Price</th>
+                    </tr>
+                    <!-- Punched Product -->
+                    <tr class="border-y-[1px] cart-product">
+                        <td class="w-[10%] text-left">
+                            <input type="checkbox"
+                                class="cart-select-btn appearance-none mr-2 w-5 h-5 rounded-md border-2 border-slate-900 cursor-pointer checked:bg-white checked:before:content-[''] checked:before:w-2 checked:before:h-1 checked:before:border-t-2 checked:before:border-r-2 checked:before:border-slate-800 checked:before:rotate-[130deg] flex justify-center items-center" />
+                        </td>
+                        <!-- Product image , Name , Color, Size -->
+                        <td class="w-[28rem] max-xl:w-[18rem] max-sm:w-min max-sm:m-0 max-lg:w-[23rem] flex gap-4 font-medium uppercase text-slate-400 text-left py-5">
+                            <!-- Product Image -->
+                            <div class="w-28 h-28 overflow-hidden rounded-lg bg-slate-500">
+                                <img src="./assets/img/adele-shafiee-_Eu7AukByoU-unsplash.jpg" alt="">
+                            </div>
+                            <!-- Name , Color ,Size -->
+                            <div class="flex flex-col gap-2">
+                                <!-- Name -->
+                                <p class="text-slate-600 text-lg font-semibold">Cardigan</p>
+                                <!-- Color and Size -->
+                                <div class="flex gap-2 text-base font-normal">
+                                    <span>Green</span>
+                                    |
+                                    <span>M</span>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Product Quantity and Remove Button -->
+                        <td class="w-[20%] text-center py-5 max-sm:text-left">
+                            <div class="flex justify-center flex-col items-center gap-3 max-sm:gap-0 max-sm:justify-start max-lg:flex-row-reverse active:bg-slate-400 rounded-lg">
+                                <!-- Product Quantity -->
+                                <div
+                                    class="border-[1px] border-slate-200 overflow-hidden rounded-lg flex justify-between w-28 max-sm:w-min h-11 text-slate-700">
+                                    <button
+                                        class="qty-decrease-btn max-sm:hidden w-2/6 pl-1 hover:bg-slate-100 active:bg-slate-200 transition-all">-</button>
+                                    <input class="cart-product-qty-input max-sm:w-10 w-2/6 text-center appearance-[textfield]"
+                                        value="1" min="1" type="number">
+                                    <button
+                                        class="qty-increase-btn max-sm:hidden w-2/6 pr-1 hover:bg-slate-100 active:bg-slate-200 transition-all">+</button>
+                                </div>
+                                <!-- Remove Button -->
+                                <button
+                                    class="cart-remove-btn flex gap-1 align-middle text-sm font-medium hover:bg-slate-100 active:bg-slate-200 p-2 rounded-lg transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2.2" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+                                    <span class="max-lg:hidden">Remove</span>
+                                </button>
+                            </div>
+                            <p class="font-bold text-right text-slate-700 text-xl py-5 price cart-product-price max-sm:text-left lg:hidden">
+                                2500
+                            </p>
+                        </td>
+                        <!-- Product Price -->
+                        <td class="w-[20%] font-bold text-slate-700 text-right text-xl py-5 price cart-product-price max-lg:hidden">
+                            2500</td>
+                    </tr>
+                    <tr class="border-y-[1px] cart-product">
+                        <td class="w-[10%] text-left">
+                            <input type="checkbox"
+                                class="cart-select-btn appearance-none mr-2 w-5 h-5 rounded-md border-2 border-slate-900 cursor-pointer checked:bg-white checked:before:content-[''] checked:before:w-2 checked:before:h-1 checked:before:border-t-2 checked:before:border-r-2 checked:before:border-slate-800 checked:before:rotate-[130deg] flex justify-center items-center" />
+                        </td>
+                        <!-- Product image , Name , Color, Size -->
+                        <td class="w-[28rem] max-xl:w-[18rem] max-sm:w-min max-sm:m-0 max-lg:w-[23rem] flex gap-4 font-medium uppercase text-slate-400 text-left py-5">
+                            <!-- Product Image -->
+                            <div class="w-28 h-28 overflow-hidden rounded-lg bg-slate-500">
+                                <img src="./assets/img/adele-shafiee-_Eu7AukByoU-unsplash.jpg" alt="">
+                            </div>
+                            <!-- Name , Color ,Size -->
+                            <div class="flex flex-col gap-2">
+                                <!-- Name -->
+                                <p class="text-slate-600 text-lg font-semibold">Cardigan</p>
+                                <!-- Color and Size -->
+                                <div class="flex gap-2 text-base font-normal">
+                                    <span>Green</span>
+                                    |
+                                    <span>M</span>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Product Quantity and Remove Button -->
+                        <td class="w-[20%] text-center py-5 max-sm:text-left">
+                            <div class="flex justify-center flex-col items-center gap-3 max-sm:gap-0 max-sm:justify-start max-lg:flex-row-reverse active:bg-slate-400 rounded-lg">
+                                <!-- Product Quantity -->
+                                <div
+                                    class="border-[1px] border-slate-200 overflow-hidden rounded-lg flex justify-between w-28 max-sm:w-min h-11 text-slate-700">
+                                    <button
+                                        class="qty-decrease-btn max-sm:hidden w-2/6 pl-1 hover:bg-slate-100 active:bg-slate-200 transition-all">-</button>
+                                    <input class="cart-product-qty-input max-sm:w-10 w-2/6 text-center appearance-[textfield]"
+                                        value="1" min="1" type="number">
+                                    <button
+                                        class="qty-increase-btn max-sm:hidden w-2/6 pr-1 hover:bg-slate-100 active:bg-slate-200 transition-all">+</button>
+                                </div>
+                                <!-- Remove Button -->
+                                <button
+                                    class="cart-remove-btn flex gap-1 align-middle text-sm font-medium hover:bg-slate-100 active:bg-slate-200 p-2 rounded-lg transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2.2" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+                                    <span class="max-lg:hidden">Remove</span>
+                                </button>
+                            </div>
+                            <p class="font-bold text-right text-slate-700 text-xl py-5 price cart-product-price max-sm:text-left lg:hidden">
+                                2500
+                            </p>
+                        </td>
+                        <!-- Product Price -->
+                        <td class="w-[20%] font-bold text-slate-700 text-right text-xl py-5 price cart-product-price max-lg:hidden">
+                            2500</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- prices section -->
+            <div class="w-[30%] sticky max-lg:block max-lg:w-full top-0 border-2 border-slate-200 rounded-xl p-6 h-max">
+                <div class="flex flex-col gap-5">
+                    <div class="flex justify-between">
+                        <span class="text-slate-400 text-lg">
+                            Subtotal
+                        </span>
+                        <span class="price text-lg text-slate-700 font-bold">
+                            2500
+                        </span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400 text-lg">Discount</span>
+                        <span class="price text-lg text-slate-400 font-medium">0</span>
+                    </div>
+                    <hr class="border-b-2 border-dashed">
+                    <div class="flex justify-between text-slate-700">
+                        <span class="font-normal text-lg ">Grand total</span>
+                        <span class="price text-xl font-bold">2500</span>
+                    </div>
+                    <button
+                        class="w-full h-14 rounded-lg bg-slate-900 text-lg text-white hover:bg-slate-800 hover:shadow-slate-400 hover:shadow-md transition-all">Checkout
+                        now</button>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-slate-100 w-full pt-16 relative bottom-0">
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="./assets/script/cart.js"></script>
+    <script type="module" src="./assets/script/main.js"></script>
+</body>
+
+</html>

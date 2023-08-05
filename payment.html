@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css links -->
+    <link rel="stylesheet" href="./assets/style/animation.min.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // tailwind.config.js
+        tailwind.config = {
+            theme: {
+                container: {
+                    // you can configure the container to be centered
+                    center: true,
+
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            variants: {},
+            plugins: [],
+        }
+    </script>
+    <title>Store</title>
+</head>
+
+<body>
+    <div class="site w-full h-full">
+        <!--Status Alert -->
+        <div
+            class="status-alert AnimatedCart-open fixed top-5 left-5 bg-slate-50 border-2 border-slate-300 py-3 px-4 z-[999] rounded-xl overflow-hidden hidden">
+            <div class="flex gap-5">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 stroke-slate-700">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <span class="status-alert-context">Added to cart</span>
+            </div>
+            <span class="h-1 transition-all bg-black absolute bottom-0 left-0 rounded-full AnimatedCartLine"></span>
+        </div>
+        <!-- Registration Modal Box -->
+        <div
+            class="register-modal bg-white bg-opacity-70 backdrop-blur-md absolute w-full h-full z-50 flex justify-center items-center shadow-lg transition-all hidden">
+
+        </div>
+        <!-- Offer Popup -->
+        <div
+            class="offer-section reletive transition-all duration-300 top-0 left-0 w-full py-2 bg-slate-900 text-center text-white text-[0.9rem] font-thin">
+
+        </div>
+        <!-- Header Section -->
+        <header>
+            <!-- Navigation Section -->
+            <nav
+                class="nav-bar flex items-center justify-center max-sm:flex-col max-sm:gap-8 sm:justify-between container pt-10 pb-10 text-slate-700 max-sm:border-b-2">
+
+            </nav>
+        </header>
+        <!-- Main Section -->
+        <main class="container gap-8">
+            <!-- Breadcrumb -->
+            <div class="inline-flex text-gray-400 py-3 px-5 pl-8 rounded-lg mb-7" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="#" class="text-sm text-gray-400 inline-flex items-center">
+                            Cart
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <a href="#" class="text-gray-400 ml-1 md:ml-2 text-sm ">Checkout</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700 ml-1 md:ml-2 text-sm font-bold">Payment</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <!-- Payment Method And Billing Address -->
+            <div class="flex gap-5 justify-between max-lg:flex-col">
+                <div class="flex flex-col gap-5 w-[65%] max-lg:w-full">
+                    <!-- Payment Method -->
+                    <div class="border-2 border-slate-100 p-5 rounded-xl flex flex-col gap-5">
+                        <p class="text-slate-700 text-lg mb-3 font-bold">Select payment method</p>
+                        <!-- Select Payment Method DropDown -->
+                        <div class="flex flex-col gap-4">
+                            <!-- Credit card -->
+                            <div class="border-2 border-slate-200 rounded-xl">
+                                <div class="flex justify-between p-3 border-b-2 border-slate-100 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input
+                                            class="appearance-none w-5 h-5 border-2 border-slate-700 rounded-full  checked:bg-slate-700"
+                                            type="radio" name="paymentmethod" id="">
+                                        <span class="text-lg font-medium text-slate-600">Credit
+                                            card</span>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <img class="w-10 object-contain" src="../img/logos/VISA-logo.png" alt="">
+                                        <img class="w-10 object-contain" src="../img/logos/Mastercard-Logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="p-3 flex flex-col gap-4">
+                                    <input type="tel" maxlength="19" placeholder="Card number"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                        required>
+                                    <input type="text" maxlength="19" placeholder="Name on card"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                        required>
+                                    <div class="flex gap-4">
+                                        <input type="text" placeholder="Expireation date (MM/YY)"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                            required>
+                                        <input type="tel" maxlength="4" placeholder="CVV"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paypal -->
+                            <div class="border-2 border-slate-200 rounded-xl">
+                                <div class="flex justify-between p-3 border-b-2 border-slate-100 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input
+                                            class="appearance-none w-5 h-5 border-2 border-slate-700 rounded-full  checked:bg-slate-700"
+                                            type="radio" name="paymentmethod" id="">
+                                        <span class="text-lg font-medium text-slate-600">Paypal</span>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <img class="w-10 object-contain" src="../img/logos/PayPal-Logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="p-3 flex flex-col gap-4 hidden">
+                                    <input type="tel" maxlength="19" placeholder="Card number"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                        required>
+                                    <input type="text" maxlength="19" placeholder="Name on card"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                        required>
+                                    <div class="flex gap-4">
+                                        <input type="text" placeholder="Expireation date (MM/YY)"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                            required>
+                                        <input type="tel" maxlength="4" placeholder="CVV"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Newsletter -->
+                            <div class="border-2 border-slate-200 rounded-xl">
+                                <div class="flex justify-between p-3 border-b-2 border-slate-100 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input
+                                            class="appearance-none w-5 h-5 border-2 border-slate-700 rounded-full  checked:bg-slate-700"
+                                            type="radio" name="paymentmethod" id="">
+                                        <span class="text-lg font-medium text-slate-600">Neterller</span>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <img class="w-10 object-contain" src="../img/logos/Neteller.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="p-3 flex flex-col gap-4 hidden">
+                                    <input type="tel" maxlength="19" placeholder="Card number"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                        required>
+                                    <input type="text" maxlength="19" placeholder="Name on card"
+                                        class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                        required>
+                                    <div class="flex gap-4">
+                                        <input type="text" placeholder="Expireation date (MM/YY)"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full text-slate-800"
+                                            required>
+                                        <input type="tel" maxlength="4" placeholder="CVV"
+                                            class="bg-slate-50 border-2 border-slate-100 p-2 rounded-xl text-lg w-full"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-2 border-slate-100 p-5 rounded-xl flex flex-col gap-5 mb-8">
+                            <!-- Billing address -->
+                            <div class="flex flex-col gap-4">
+                                <p class="text-slate-700 text-lg mb-3 font-bold">Shipping address</p>
+                                <!-- same am my address check box -->
+                                <div class="flex gap-3">
+                                    <input
+                                        class="appearance-none w-6 h-6 rounded-lg border-2 border-slate-800 checked:bg-slate-800 checked:before:contents checked:before:border-r-[1x] checked:before:border-b-[1x] checked:before:w-1 checked:before:absolute relative"
+                                        type="checkbox" name="" id="">
+                                    <span>Same as my shipping address</span>
+                                </div>
+                                <!-- Phone Number -->
+                                <div>
+                                    <p class="text-slate-600 text-lg">Phone number *</p>
+                                    <input type="text" placeholder="Enter your phone numbrt(only digits)"
+                                        class="border-2 border-gray-100 bg-slate-50 text-slate-500 text-lg w-full p-2 rounded-lg"
+                                        required>
+                                </div>
+                                <!-- house number -->
+                                <div>
+                                    <p class="text-slate-600 text-lg">Street name and house number *</p>
+                                    <input type="text" placeholder="Enter your street name and house number"
+                                        class="border-2 border-gray-100 bg-slate-50 text-slate-500 text-lg w-full p-2 rounded-lg"
+                                        required>
+                                </div>
+                                <!-- city number -->
+                                <div>
+                                    <p class="text-slate-600 text-lg">City *</p>
+                                    <input type="text" placeholder="Enter your street name and house number"
+                                        class="border-2 border-gray-100 bg-slate-50 text-slate-500 text-lg w-full p-2 rounded-lg"
+                                        required>
+                                </div>
+                                <!-- Postal code -->
+                                <div>
+                                    <p class="text-slate-600 text-lg">City *</p>
+                                    <input type="text" placeholder="Enter your Postal code"
+                                        class="border-2 border-gray-100 bg-slate-50 text-slate-500 text-lg w-full p-2 rounded-lg"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Remember my information -->
+                    <div class="border-2 border-slate-100 p-5 rounded-xl flex flex-col gap-5 mb-8">
+                        <p class="text-slate-700 text-lg mb-3 font-bold">Remember my information</p>
+                        <div class="flex gap-3">
+                            <input
+                                class="appearance-none w-6 h-6 rounded-lg border-2 border-slate-800 checked:bg-slate-800 checked:before:contents checked:before:border-r-[1x] checked:before:border-b-[1x] checked:before:w-1 checked:before:absolute relative"
+                                type="checkbox" name="" id="">
+                            <span>Same as my shipping address</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Price Box -->
+                <div class="w-[35%] max-lg:w-full h-fit border-2 border-slate-100 rounded-xl p-4 pt-4">
+                    <!--Order List-->
+                    <div>
+                        <p class="text-slate-700 text-lg font-semibold">Your Order</p>
+                        <div class="flex gap-4 h-24 relative my-3">
+                            <!-- Order image -->
+                            <div class="w-24 h-24 rounded-xl overflow-hidden">
+                                <img class="w-full" src="./assets/img/adele-shafiee-58OynfcotZk-unsplash.jpg" alt="Order">
+                            </div>
+                            <!-- Order Info like name color and size -->
+                            <div class="flex flex-col justify-between ">
+                                <p class="text-slate-700 text-lg w-36 truncate text-ellipsis overflow-hidden">
+                                    Cahier Leather lorem lorem</p>
+                                <p class="text-slate-400 text-base">Gray</p>
+                                <p class="text-slate-700 text-sm">xl</p>
+                            </div>
+                            <span
+                                class="price absolute max-xl:top-6 top-3 right-2 font-medium text-xl text-slate-700">2,500.00</span>
+                        </div>
+                        <hr class="border-dashed border-2 border-slate-100">
+                        <!-- Discount Code -->
+                        <div class="py-2 mb-4">
+                            <p class="text-slate-700 text-lg font-semibold mb-2">Discount Code</p>
+                            <div class="flex gap-1 max-lg:flex-col max-lg:gap-3">
+                                <input type="text" class="bg-gray-50 p-2 rounded-lg border-2 border-slate-200"
+                                    placeholder="Add discount code">
+                                <button
+                                    class="border-2 border-slate-200 px-3 max-lg:h-10 rounded-lg text-slate-700 hover:bg-slate-300 hover:text-slate-800 transition-all duration-300">Apply</button>
+                            </div>
+                            <p class="text-slate-700 mt-4"><b>New customer?</b> <a href="#" class="underline">Sign
+                                    up</a> to
+                                get
+                                better
+                                offer</p>
+                        </div>
+                        <hr class="border-dashed border-2 border-slate-100">
+                        <!-- Prices -->
+                        <div class="text-slate-400 text-lg flex flex-col gap-3 my-5">
+                            <div class="flex justify-between">
+                                <p>Subtotal</p>
+                                <span class="price text-slate-600 font-bold">2,500.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <p>Discount</p>
+                                <span class="price">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <p>Shipment cost</p>
+                                <span class="price">0</span>
+                            </div>
+                        </div>
+                        <hr class="border-dashed border-2 border-slate-100">
+                        <!-- Grand total price -->
+                        <div class="flex flex-col gap-5">
+                            <div class="flex justify-between my-4">
+                                <p class="text-slate-400 text-xl">Grand total</p>
+                                <span class="price text-slate-700 font-semibold text-2xl">2,522.50</span>
+                            </div>
+                            <button
+                                class="disabled:bg-slate-200 disabled:text-slate-400 h-12 w-full rounded-xl font-normal text-lg bg-slate-900 text-white transition-all duration-300 hover:shadow-md hover:shadow-slate-400"
+                                disabled>Continue
+                                to
+                                payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-slate-100 w-full pt-16 relative bottom-0 -z-10">
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="./assets/script/checkout.js"></script>
+    <script type="module" src="./assets/script/main.js"></script>
+</body>
+
+</html>
